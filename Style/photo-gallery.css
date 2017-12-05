@@ -1,0 +1,130 @@
+﻿.flexbin {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: -2.5px;
+  padding: 10px;
+}
+.flexbin:after {
+  content: '';
+  flex-grow: 999999999;
+  min-width: 300px;
+  height: 0;
+}
+.flexbin > * {
+  position: relative;
+  display: block;
+  height: 300px;
+  margin: 2.5px;
+  flex-grow: 1;
+}
+.flexbin > * > img {
+  height: 300px;
+  object-fit: cover;
+  max-width: 100%;
+  min-width: 100%;
+  vertical-align: bottom;
+}
+.flexbin.flexbin-margin {
+  margin: 2.5px;
+}
+@media (max-width: 980px) {
+  .flexbin {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin: -2.5px;
+  }
+  .flexbin:after {
+    content: '';
+    flex-grow: 999999999;
+    min-width: 150px;
+    height: 0;
+  }
+  .flexbin > * {
+    position: relative;
+    display: block;
+    height: 150px;
+    margin: 2.5px;
+    flex-grow: 1;
+  }
+  .flexbin > * > img {
+    height: 150px;
+    object-fit: cover;
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: bottom;
+  }
+  .flexbin.flexbin-margin {
+    margin: 2.5px;
+  }
+}
+@media (max-width: 400px) {
+  .flexbin {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin: -2.5px;
+  }
+  .flexbin:after {
+    content: '';
+    flex-grow: 999999999;
+    min-width: 100px;
+    height: 0;
+  }
+  .flexbin > * {
+    position: relative;
+    display: block;
+    height: 100px;
+    margin: 2.5px;
+    flex-grow: 1;
+  }
+  .flexbin > * > img {
+    height: 100px;
+    object-fit: cover;
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: bottom;
+  }
+  .flexbin.flexbin-margin {
+    margin: 2.5px;
+  }
+}
+
+/* Caption */
+a:hover img {
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+a:hover .photo-caption {
+  display: block;
+}
+
+.photo-caption {
+  width: 100%;
+  background-color: white;
+  opacity: .7;
+  height: 50px;
+  z-index: 1;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+}
+
+.photo-title 
+{
+    float: left;
+    bottom: 0;
+}
+
+.photo-details
+{
+    float: right;
+}
+.photo-title p,
+.photo-details p
+{
+    line-height: 80%;
+}

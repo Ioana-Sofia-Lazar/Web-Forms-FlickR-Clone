@@ -1,0 +1,14 @@
+﻿.navbar {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+#navbarSupportedContent > ul {
+    padding-left: 30px;
+    padding-right: 30px;
+}  
+button:hover {
+    cursor: pointer;
+}
+#txtSearch {
+    width: 230px;
+}
