@@ -1,9 +1,5 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400|Lato:400,300|Coda|Open+Sans);
 
-/* 
-* Art by @jofpin 
-* 2014
-*/
 body {
   background: #f8f5f0;
   font-family: "Open sans", sans-serif;
@@ -29,34 +25,22 @@ a {
 .profile-user-page .img-user-profile {
 	margin: 0 auto;
   text-align: center; 
+  position: relative;
 }
 .profile-user-page .img-user-profile .profile-bgHome {
 	border-bottom: .2em solid #f5f5f5;
   width: 74.8em;
   height: 20em;
   }
-.profile-user-page .img-user-profile .avatar {
-	margin: 0 auto;
+.profile-user-page .img-user-profile .avatar 
+{
+    max-height: 14em;
+    max-width: 14em;
+    
+  padding: .25em;
   background: #fff;
-  width: 14em;
-  height: 14em;
-  padding: 0.25em;
   border-radius: 10em;
-  margin-top: -8em;
   box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
-}
-.profile-user-page button {
-	position: absolute;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 7em; 
-  background: #3498db;
-  border: 1px solid #2487c9;
-  color: #fff;
-  outline: none;
-  border-radius: 0 .6em .6em 0;
-  padding: .80em;
 }
 
 .profile-user-page button:hover {
@@ -142,4 +126,51 @@ a {
 }
 .profile-user-page .data-user li a:hover span {
   color: #3498db; 
+}
+
+/* Change pics buttons */
+.avatar-container 
+{
+    margin: 0 auto;
+  width: 14em;
+  height: 14em;
+  margin-top: -8em;
+}
+.change-bg 
+{
+    position:absolute;
+    right:30px;
+    bottom: 100px;
+}
+
+.change-avatar 
+{
+    position: absolute;
+    left: calc(50% - 40px);
+    width: 80px;
+    margin-top: -5em;
+}
+
+/* About */
+.align-right 
+{
+    display: inline;
+    text-align: right;
+    width: 50%;
+    float:left;
+    padding: 10px;
+}
+.align-left 
+{
+    display: inline;
+    text-align: left;
+    width: 50%;
+    float:right;
+    padding: 10px;
+}
+
+.about-description 
+{
+    padding: 10px 150px;
+    text-align: center;
 }

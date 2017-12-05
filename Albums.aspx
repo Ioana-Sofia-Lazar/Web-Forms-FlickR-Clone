@@ -4,39 +4,42 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderProfile" Runat="Server">
 
-    <div class="flexbin">
-        <a href="#">
-            <img src="images/test1.jpeg" />
-			<div class="photo-caption">
-                <div class="photo-title">
-                    <p>Photo Title</p>
-                     <p>by Author</p>
-                </div>
-                <div class="photo-details">
-                    <i class="fa fa-comment-o" aria-hidden="true"></i> <span>120</span>
-                    <span>Nature</span>
-                </div>
-                
-             </div>
-        </a>
-        <a href="#">
-            <img src="images/test2.jpeg" />
-        </a>
-        <a href="#">
-            <img src="images/test1.jpeg" />
-        </a>
-        <a href="#">
-            <img src="images/test3.jpg" />
-        </a>
-        <a href="#">
-            <img src="images/test1.jpeg" />
-        </a>
-        <a href="#">
-            <img src="images/test4.jpg" />
-        </a>
-        <a href="#">
-            <img src="images/test5.jpeg" />
-        </a>
+    <div class="row">
+  <div class="column">
+    <div class="content">
+      <div class="album-cover" 
+        style="background-image: url('images/test1.jpeg');">
+        </div>
+      <h3>My Work</h3>
+       <p>5 photos</p>
     </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <div class="album-cover" 
+        style="background-image: url('images/test1.jpeg');">
+        </div>
+      <h3>My Work</h3>
+      <p>5 photos</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <div class="album-cover" 
+        style="background-image: url('images/test1.jpeg');">
+        </div>
+      <h3>My Work</h3>
+       <p>5 photos</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+      <h3>My Work</h3>
+       <p>5 photos</p>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
 
 </asp:Content>
