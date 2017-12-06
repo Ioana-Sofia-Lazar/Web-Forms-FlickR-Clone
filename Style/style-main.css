@@ -12,3 +12,9 @@ button:hover {
 #txtSearch {
     width: 230px;
 }
+.readonly-input 
+{
+    display: block;
+    margin-bottom: 10px;
+    border: none;
+}

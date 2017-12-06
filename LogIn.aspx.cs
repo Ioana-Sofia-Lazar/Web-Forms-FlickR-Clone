@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 
 public partial class LogIn : System.Web.UI.Page
 {
@@ -11,4 +12,10 @@ public partial class LogIn : System.Web.UI.Page
     {
 
     }
+
+    protected void OnLoggedIn(object sender, EventArgs e)
+    {
+        Session["username"] = Login1.UserName;
+    }
+
 }

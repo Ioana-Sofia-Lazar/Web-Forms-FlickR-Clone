@@ -22,15 +22,21 @@ a {
   height: 100%;
 }
 
-.profile-user-page .img-user-profile {
+.profile-user-page .img-user-profile 
+{
+    width: 100%;
 	margin: 0 auto;
   text-align: center; 
   position: relative;
 }
-.profile-user-page .img-user-profile .profile-bgHome {
+.profile-user-page .img-user-profile .profile-bgHome 
+{
+    height: 300px;
+    width: 100%;
 	border-bottom: .2em solid #f5f5f5;
-  width: 74.8em;
-  height: 20em;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   }
 .profile-user-page .img-user-profile .avatar 
 {
@@ -136,6 +142,17 @@ a {
   height: 14em;
   margin-top: -8em;
 }
+
+.change-bg, .change-avatar 
+{
+    display: none;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    color: #fff;
+}
+
 .change-bg 
 {
     position:absolute;
@@ -149,6 +166,12 @@ a {
     left: calc(50% - 40px);
     width: 80px;
     margin-top: -5em;
+}
+
+.profile-bgHome:hover button,
+.avatar-container:hover button
+{
+    display: block;
 }
 
 /* About */
