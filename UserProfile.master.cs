@@ -28,4 +28,9 @@ public partial class UserProfile : System.Web.UI.MasterPage
 
         connection.Close();
     }
+
+    protected void btnEditProfile_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/EditProfile.aspx", false);
+    }
 }

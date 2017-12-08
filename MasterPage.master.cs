@@ -25,4 +25,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("~/SignUp.aspx");
     }
+    protected void btnProfile_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/About.aspx");
+    }
+    protected void btnSettings_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Settings.aspx");
+    }
 }

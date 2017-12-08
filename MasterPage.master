@@ -49,10 +49,12 @@
                         <div class="dropdown">
                             <img class="btn dropdown-toggle" width="50px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/363633-200.png" alt="dropdown image" data-toggle="dropdown" class="img-responsive">
                             <ul class="dropdown-menu">
-                                <li><a href="About.aspx">Profile</a></li>
-                                <li><a href="#">Log Out</a></li>
-                                <li><asp:Button ID="Button1" class="btn btn-link" type="submit" runat="server" 
-                        Text="Sign Out" onclick="btnSignOut_Click"></asp:Button></li>
+                                <li><asp:Button ID="btnProfile" class="btn btn-link" type="submit" runat="server" 
+                                    Text="Profile" onclick="btnProfile_Click"></asp:Button></li>
+                                <li><asp:Button ID="btnSettings" class="btn btn-link" type="submit" runat="server" 
+                                    Text="Account Settings" onclick="btnSettings_Click"></asp:Button></li>
+                                <li><asp:Button ID="btnSignOut" class="btn btn-link" type="submit" runat="server" 
+                                    Text="Sign Out" onclick="btnSignOut_Click"></asp:Button></li>
                             </ul>
                         </div>
                     </div>

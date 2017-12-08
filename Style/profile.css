@@ -40,8 +40,8 @@ a {
   }
 .profile-user-page .img-user-profile .avatar 
 {
-    max-height: 14em;
-    max-width: 14em;
+    max-height: 300px;
+    max-width: 300px;
     
   padding: .25em;
   background: #fff;
@@ -135,15 +135,22 @@ a {
 }
 
 /* Change pics buttons */
+
+.edit-profile 
+{
+    position:absolute;
+    right:30px;
+    top: 60px;
+}
 .avatar-container 
 {
     margin: 0 auto;
-  width: 14em;
-  height: 14em;
+  width: 300px;
+  height: 300px;
   margin-top: -8em;
 }
 
-.change-bg, .change-avatar 
+.change-bg, .change-avatar
 {
     display: none;
     background:none;
@@ -168,8 +175,8 @@ a {
     margin-top: -5em;
 }
 
-.profile-bgHome:hover button,
-.avatar-container:hover button
+.profile-bgHome:hover input,
+.avatar-container:hover input
 {
     display: block;
 }
