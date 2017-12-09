@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserProfile.master" AutoEventWireup="true" CodeFile="About.aspx.cs" Inherits="About" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserProfile.master" AutoEventWireup="true" CodeFile="Photos.aspx.cs" Inherits="Photos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="headProfile" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderProfile" Runat="Server">
 
-    <div class="flexbin">
+<div class="flexbin">
         <a href="#">
             <img src="images/test1.jpeg" />
 			<div class="photo-caption">
@@ -40,3 +40,4 @@
     </div>
 
 </asp:Content>
+

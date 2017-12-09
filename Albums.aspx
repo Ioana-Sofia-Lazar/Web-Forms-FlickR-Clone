@@ -1,10 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserProfile.master" AutoEventWireup="true" CodeFile="About.aspx.cs" Inherits="About" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserProfile.master" AutoEventWireup="true" CodeFile="Albums.aspx.cs" Inherits="Albums" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="headProfile" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderProfile" Runat="Server">
 
-    <div class="row">
+<div class="row">
+
+  <div class="column">
+        <a href="AddAlbum.aspx">
+      <asp:Image ID="Image1" runat="server" ImageUrl="Images/add_photo.png" style="padding-left:50px;" />
+      </a>
+  </div>
+
   <div class="column">
     <div class="content">
       <div class="album-cover" 
@@ -14,6 +21,7 @@
        <p>5 photos</p>
     </div>
   </div>
+
   <div class="column">
     <div class="content">
     <div class="album-cover" 
@@ -42,4 +50,6 @@
 <!-- END GRID -->
 </div>
 
+
 </asp:Content>
+

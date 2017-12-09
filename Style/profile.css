@@ -40,9 +40,8 @@ a {
   }
 .profile-user-page .img-user-profile .avatar 
 {
-    max-height: 300px;
-    max-width: 300px;
-    
+    max-height: 220px;
+    max-width: 220px;
   padding: .25em;
   background: #fff;
   border-radius: 10em;
@@ -146,7 +145,6 @@ a {
 {
     margin: 0 auto;
   width: 300px;
-  height: 300px;
   margin-top: -8em;
 }
 

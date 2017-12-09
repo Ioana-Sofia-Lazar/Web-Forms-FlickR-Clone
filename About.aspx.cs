@@ -10,12 +10,14 @@ public partial class About : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        string username = Utils.getCurrentUsername();
+
         // load user info from the db
         SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString());
         connection.Open();
 
         SqlCommand command = new SqlCommand("SELECT * FROM user_info WHERE username = @username", connection);
-        command.Parameters.AddWithValue("@username", Session["username"]);
+        command.Parameters.AddWithValue("@username", username);
 
         using (SqlDataReader reader = command.ExecuteReader())
         {
