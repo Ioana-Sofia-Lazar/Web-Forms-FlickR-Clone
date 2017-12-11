@@ -43,6 +43,17 @@ public class PhotoHandler : IHttpHandler {
         object data = command.ExecuteScalar();
         connection.Close();
 
+        if (data == System.DBNull.Value && type == "profile")
+        {
+            string path = HttpContext.Current.Server.MapPath("~/images/profile-placeholder.png");
+            data = System.IO.File.ReadAllBytes(path);
+        }
+        else if (data == System.DBNull.Value && type == "cover")
+        {
+            string path = HttpContext.Current.Server.MapPath("~/images/cover-default.png");
+            data = System.IO.File.ReadAllBytes(path);
+        }
+
         context.Response.BinaryWrite((byte[])data);
     }
 

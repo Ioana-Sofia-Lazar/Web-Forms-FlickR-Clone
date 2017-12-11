@@ -44,7 +44,7 @@ public partial class EditProfile : System.Web.UI.Page
         imgNewProfile.DataBind();
 
         // load cover photo
-        imgNewCover.ImageUrl = "~/Handlers/CoverPhotoHandler.ashx?username=" + username + "&type=cover";
+        imgNewCover.ImageUrl = "~/Handlers/PhotoHandler.ashx?username=" + username + "&type=cover";
         imgNewCover.DataBind();
     }
 
@@ -56,7 +56,6 @@ public partial class EditProfile : System.Web.UI.Page
     protected void btnSave_Click(object sender, EventArgs e)
     {
         string username = Utils.getCurrentUsername();
-        Debug.WriteLine("~~" + username);
 
         // info
         string name = txtName.Text;
@@ -90,7 +89,7 @@ public partial class EditProfile : System.Web.UI.Page
         }
 
         // cover photo
-        if (profileFileUp.HasFile)
+        if (coverFileUp.HasFile)
         {
             Stream photoStream = coverFileUp.PostedFile.InputStream;
             int photoLength = coverFileUp.PostedFile.ContentLength;
@@ -108,23 +107,4 @@ public partial class EditProfile : System.Web.UI.Page
         Response.Redirect("~/About.aspx", false);
     }
 
-    //Open file in to a filestream and read data in a byte array.
-    byte[] ReadFile(string sPath)
-    {
-        byte[] data = null;
-
-        // Use FileInfo object to get file size.
-        FileInfo fInfo = new FileInfo(sPath);
-        long numBytes = fInfo.Length;
-
-        // Open FileStream to read file
-        FileStream fStream = new FileStream(sPath, FileMode.Open, FileAccess.Read);
-
-        // Use BinaryReader to read file stream into byte array.
-        BinaryReader br = new BinaryReader(fStream);
-
-        data = br.ReadBytes((int)numBytes);
-
-        return data;
-    }
 }

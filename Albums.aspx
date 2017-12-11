@@ -8,46 +8,30 @@
 
   <div class="column">
         <a href="AddAlbum.aspx">
-      <asp:Image ID="Image1" runat="server" ImageUrl="Images/add_photo.png" style="padding-left:50px;" />
+      <asp:Image ID="Image1" runat="server" ImageUrl="Images/add_photo.png" style="padding-left:70px;" />
       </a>
   </div>
 
-  <div class="column">
-    <div class="content">
-      <div class="album-cover" 
-        style="background-image: url('images/test1.jpeg');">
+    <asp:Repeater ID="repeaterAlbums" runat="server">
+    <ItemTemplate>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id", "Album.aspx?album_id={0}") %>'>
+ 
+        <div class="column">
+        <div class="content">
+          <div class="album-cover" 
+            style="background-image: url('<%# string.Format("Handlers/AlbumPhotoHandler.ashx?photo_id={0}", Eval("photo_id")) %>');">
+            </div>
+          <h3><%# Eval("title") %></h3>
         </div>
-      <h3>My Work</h3>
-       <p>5 photos</p>
-    </div>
-  </div>
+      </div>
+      </asp:HyperLink>
+    </ItemTemplate>
+    </asp:Repeater>
 
-  <div class="column">
-    <div class="content">
-    <div class="album-cover" 
-        style="background-image: url('images/test1.jpeg');">
-        </div>
-      <h3>My Work</h3>
-      <p>5 photos</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="content">
-    <div class="album-cover" 
-        style="background-image: url('images/test1.jpeg');">
-        </div>
-      <h3>My Work</h3>
-       <p>5 photos</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="content">
-    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-      <h3>My Work</h3>
-       <p>5 photos</p>
-    </div>
-  </div>
-<!-- END GRID -->
+
+  
+
+  
 </div>
 
 

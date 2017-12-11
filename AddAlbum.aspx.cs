@@ -16,19 +16,23 @@ public partial class AddAlbum : System.Web.UI.Page
     {
         string username = Utils.getCurrentUsername();
 
-        var conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='D:\FMI 3.1\DAW\Proiect\App_Data\Database.mdf';Integrated Security=True");
-        var sql = "INSERT INTO Albume(Nume, UserId) VALUES (@num, @uid)";
+        SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString());
+        string query = "INSERT INTO album(title, username) VALUES (@title, @username)";
 
-        var comm = new SqlCommand(sql, conn);
-        comm.Parameters.AddWithValue("num", albumName.Text);
-        comm.Parameters.AddWithValue("uid", userId);
+        SqlCommand command = new SqlCommand(query, connection);
+        command.Parameters.AddWithValue("@title", albumTitle.Text);
+        command.Parameters.AddWithValue("@username", username);
 
-        conn.Open();
-        if (comm.ExecuteNonQuery() > 0)
+        connection.Open();
+        if (command.ExecuteNonQuery() > 0)
         {
-            Response.Redirect("~/Pages/Content/Profile.aspx");
+            Response.Redirect("~/Albums.aspx");
         }
-        conn.Close();
+        connection.Close();
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {        
+        Response.Redirect("~/Albums.aspx");      
     }
 
 }

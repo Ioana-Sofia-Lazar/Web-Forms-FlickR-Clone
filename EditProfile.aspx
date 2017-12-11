@@ -16,8 +16,7 @@
         <div class="text-center">
             <asp:Image ID="imgNewProfile" runat="server" cssClass="avatar img-circle" alt="avatar" ImageUrl="//placehold.it/100" Height="100px" Width="100px" />
           <h6>Change profile photo...</h6>
-            
-            <asp:FileUpload accept=".png,.jpg,.jpeg,.gif" ID="profileFileUp" runat="server" CssClass="form-control" />
+          <asp:FileUpload accept=".png,.jpg,.jpeg,.gif" ID="profileFileUp" runat="server" CssClass="form-control" />
         </div>
         <br />
         <div class="text-center">

@@ -29,10 +29,9 @@ public partial class SignUp : System.Web.UI.Page
         String email = ((TextBox)CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("Email")).Text;
 
         // Insert new user with this info
-        string connectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=D:\FMI\AN3\Sem1\DAW\Proiect\App_Data\ASPNETDB.MDF;Integrated Security=True;User Instance=True";
         string query = "INSERT INTO user_info(ref_id, username, email) VALUES(@id, @username, @email);";
 
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        using (SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString()))
         {
 
             connection.Open();

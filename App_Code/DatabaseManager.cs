@@ -11,18 +11,9 @@ public class DatabaseManager
 	{
 	}
 
-    static DatabaseManager()
-    {
-        _instance = new DatabaseManager();
-    }
-    public DatabaseManager Instance
-    {
-        get { return _instance; }
-    }
-
     public static string GetConnectionString()
     {
-        return @"Data Source=.\SQLEXPRESS;AttachDbFilename=D:\Jojo\Web-Forms-FlickR-Clone\App_Data\ASPNETDB.MDF;Integrated Security=True;User Instance=True";
+        return @"Data Source=.\SQLEXPRESS;AttachDbFilename=D:\FMI\AN3\Sem1\DAW\Proiect\App_Data\ASPNETDB.MDF;Integrated Security=True;User Instance=True";
     }
 
 }

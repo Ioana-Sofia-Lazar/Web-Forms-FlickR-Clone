@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" 
-    ContinueDestinationPageUrl="~/About.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser">
+<div class="centered-container-small">
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/About.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser" CssClass="form-row align-items-center" CreateUserButtonStyle-CssClass="btn btn-primary btn-lg btn-block" TextBoxStyle-CssClass="form-control">
         <WizardSteps>
             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                 <ContentTemplate>
@@ -120,5 +120,6 @@
             </asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
+    </div>
 </asp:Content>
 
