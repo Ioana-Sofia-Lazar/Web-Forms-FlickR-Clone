@@ -4,6 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="headProfile" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderProfile" runat="Server">
+    <asp:Button ID="btnAddPhoto" runat="server" Text="Add Photo" CssClass="btn btn-primary"
+        OnClick="btnAddPhoto_Click" width="100px" style="margin: 15px;" />
     <div class="flexbin">       
         <asp:Repeater ID="repeaterPhotos" runat="server">
             <ItemTemplate>

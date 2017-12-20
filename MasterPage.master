@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -10,70 +9,64 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
     <link rel="Stylesheet" href="Style/bootstrap-theme.css" />
     <link rel="Stylesheet" href="Style/style-main.css" />
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <link rel="Stylesheet" href="Style/photo-gallery.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
     <form id="form1" runat="server">
     <div class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">flickr</a>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Explore<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Create</a>
-          </li>
-        </ul>
-
-        <asp:TextBox ID="txtSearch" runat="server" class="form-control mr-sm-2" Placeholder="Search photos or people"></asp:TextBox>
-        <asp:Button ID="btnSearch" class="btn btn-outline-secondary" type="submit" runat="server" 
-                        Text="Search"></asp:Button>
-        
-        <asp:LoginView ID="LoginView1" runat="server">
-            <AnonymousTemplate>
-                <ul class="nav navbar-nav navbar-right">
-                    <asp:Button ID="btnLogIn" class="btn btn-link" type="submit" runat="server" 
-                        Text="Log In" onclick="btnLogIn_Click"></asp:Button>
-                    <asp:Button ID="btnSignUp" class="btn btn-primary" type="submit" runat="server" 
-                        Text="Sign Up" onclick="btnSignUp_Click"></asp:Button>
-                </ul>
-            </AnonymousTemplate>
-            <LoggedInTemplate>
-                <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <div class="container">
-                        <div class="dropdown">
-                            <img class="btn dropdown-toggle" width="50px" src="https://d30y9cdsu7xlg0.cloudfront.net/png/363633-200.png" alt="dropdown image" data-toggle="dropdown" class="img-responsive">
-                            <ul class="dropdown-menu">
-                                <li><asp:Button ID="btnProfile" class="btn btn-link" type="submit" runat="server" 
-                                    Text="Profile" onclick="btnProfile_Click"></asp:Button></li>
-                                <li><asp:Button ID="btnSettings" class="btn btn-link" type="submit" runat="server" 
-                                    Text="Account Settings" onclick="btnSettings_Click"></asp:Button></li>
-                                <li><asp:Button ID="btnSignOut" class="btn btn-link" type="submit" runat="server" 
-                                    Text="Sign Out" onclick="btnSignOut_Click"></asp:Button></li>
-                            </ul>
-                        </div>
-                    </div>
-       </li>
-                </ul>
-            </LoggedInTemplate>
-        </asp:LoginView>
-
-      </div>
+        <a class="navbar-brand" href="Default.aspx">flickr</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="Default.aspx">Explore</a> </li>
+                <li class="nav-item"><a class="nav-link" href="Categories.aspx">Categories</a> </li>
+            </ul>
+            <asp:TextBox ID="txtSearch" runat="server" class="form-control mr-sm-2" Placeholder="Search photos..."></asp:TextBox>
+            <asp:Button ID="btnSearch" class="btn btn-outline-secondary" type="submit" runat="server" OnClick="btnSearch_Click"
+                Text="Search"></asp:Button>
+            <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    <ul class="nav navbar-nav navbar-right">
+                        <asp:Button ID="btnLogIn" class="btn btn-link" type="submit" runat="server" Text="Log In" OnClick="btnLogIn_Click">
+                        </asp:Button>
+                        <asp:Button ID="btnSignUp" class="btn btn-primary" type="submit" runat="server" Text="Sign Up" OnClick="btnSignUp_Click">
+                        </asp:Button>
+                    </ul>
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="container">
+                                <div class="dropdown">
+                                    <img class="btn dropdown-toggle" width="60px" style="cursor: pointer;" src="images/user.png" alt="dropdown image" data-toggle="dropdown"
+                                        class="img-responsive">
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <asp:Button ID="btnProfile" class="btn btn-link" type="submit" runat="server" Text="Profile" OnClick="btnProfile_Click">
+                                            </asp:Button></li>
+                                        <li>
+                                            <asp:Button ID="btnSignOut" class="btn btn-link" type="submit" runat="server" Text="Sign Out" OnClick="btnSignOut_Click">
+                                            </asp:Button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <asp:ImageButton ID="btnNotifications" runat="server" ImageUrl="images/bell.png" OnClick="btnNotifications_Click" />
+                        </li>
+                    </ul>
+                </LoggedInTemplate>
+            </asp:LoginView>
+        </div>
     </div>
-
-    
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
+        <div class="main-container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </div>
     </form>
-
     <script type="application/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>

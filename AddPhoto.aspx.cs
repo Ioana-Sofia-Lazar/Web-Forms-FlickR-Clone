@@ -14,6 +14,12 @@ public partial class AddPhoto : System.Web.UI.Page
     {
         if (Page.IsPostBack) return;
 
+        populateCategories();
+        populateAlbums();
+    }
+
+    protected void populateCategories()
+    {
         // populate ddl with categories
         string query = "SELECT id, title FROM category";
 
@@ -35,26 +41,40 @@ public partial class AddPhoto : System.Web.UI.Page
         }
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+    protected void populateAlbums()
     {
-        // send user back to viewing the same album
-        if (string.IsNullOrEmpty(Request.QueryString["album_id"].ToString()))
+        // populate ddl with albums
+        string username = Utils.getCurrentUsername();
+        string query = "SELECT id, title FROM album WHERE username = @username";
+
+        using (SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString()))
         {
-            Response.Redirect("~/Albums.aspx");
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@username", username);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable albums = new DataTable();
+                    adapter.Fill(albums);
+
+                    ddlAlbums.DataSource = albums;
+                    ddlAlbums.DataTextField = "title";
+                    ddlAlbums.DataValueField = "id";
+                    ddlAlbums.DataBind();
+                }
+            }
         }
-        string albumId = Request.QueryString["album_id"].ToString();
-        Response.Redirect("~/Album.aspx?album_id=" + albumId);
+
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
-    {
-        string albumId = Request.QueryString["album_id"].ToString();
-        
+    {        
         // info
         string title = txtTitle.Text;
         string description = txtDescription.Text;
         string category = ddlCategories.SelectedValue;
-        string query = "INSERT INTO photo(title, description, image, album_id, category_id) VALUES(@title, @description, @image, @albumId, @categId)";
+        string album = ddlAlbums.SelectedValue;
+        string query = "INSERT INTO photo(title, description, image, album_id, category_id, date) output INSERTED.ID VALUES(@title, @description, @image, @albumId, @categId, GETDATE())";
 
         // image
         Stream photoStream = photoFileUp.PostedFile.InputStream;
@@ -70,12 +90,13 @@ public partial class AddPhoto : System.Web.UI.Page
         command.Parameters.AddWithValue("@title", title);
         command.Parameters.AddWithValue("@description", description);
         command.Parameters.AddWithValue("@image", photoData);
-        command.Parameters.AddWithValue("@albumId", Int32.Parse(albumId));
+        command.Parameters.AddWithValue("@albumId", Int32.Parse(album));
         command.Parameters.AddWithValue("@categId", Int32.Parse(category));
-        command.ExecuteNonQuery();
+        int photoId = (int) command.ExecuteScalar();
 
+        command.Dispose();
         connection.Close();
 
-        Response.Redirect("~/Album.aspx?album_id=" + albumId);
+        Response.Redirect("~/PhotoAdded.aspx?album_id=" + album + "&photo_id=" + photoId);
     }
 }

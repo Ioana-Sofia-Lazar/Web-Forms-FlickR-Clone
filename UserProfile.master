@@ -3,8 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
     <link rel="Stylesheet" href="Style/profile.css" />
-    <link rel="Stylesheet" href="Style/photo-gallery.css" />
-
     <asp:ContentPlaceHolder id="headProfile" runat="server">       
     </asp:ContentPlaceHolder>
 

@@ -29,8 +29,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         Response.Redirect("~/About.aspx");
     }
+    protected void btnNotifications_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Notifications.aspx");
+    }
     protected void btnSettings_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/Settings.aspx");
+    }
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        string input = txtSearch.Text;
+
+        Response.Redirect("~/Default.aspx?search=" + input);
     }
 }

@@ -3,15 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="centered-container-small">
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/About.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser" CssClass="form-row align-items-center" CreateUserButtonStyle-CssClass="btn btn-primary btn-lg btn-block" TextBoxStyle-CssClass="form-control">
+<div class="centered-container-small text-center">
+<h1>SIGN UP</h1>
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/About.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser" CssClass="wizard-container" CreateUserButtonStyle-CssClass="btn btn-primary btn-lg btn-block" TextBoxStyle-CssClass="form-control">
         <WizardSteps>
             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                 <ContentTemplate>
                     <table>
                         <tr>
-                            <td align="center" colspan="2">
-                                Sign Up for Your New Account</td>
+                            <td align="center" colspan="2"></td>
                         </tr>
                         <tr>
                             <td align="right">

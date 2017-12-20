@@ -8,8 +8,15 @@
         <form class="form-horizontal" action="">
         <br />
         <div class="form-group">
+            <asp:Label ID="Label4" runat="server" Text="Album:" CssClass="col-lg-3 control-label"></asp:Label>
+            <div class="col-lg-12">
+                <asp:DropDownList ID="ddlAlbums" runat="server" CssClass="form-control">
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="form-group">
             <asp:Label ID="Label5" runat="server" Text="Choose photo:" CssClass="col-lg-3 control-label"></asp:Label>
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <asp:FileUpload accept=".png,.jpg,.jpeg,.gif" ID="photoFileUp" runat="server" CssClass="form-control" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please choose a photo!"
                     ControlToValidate="photoFileUp" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -17,14 +24,14 @@
         </div>
         <div class="form-group">
             <asp:Label ID="Label3" runat="server" Text="Category:" CssClass="col-lg-3 control-label"></asp:Label>
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control">
                 </asp:DropDownList>
             </div>
         </div>
         <div class="form-group">
             <asp:Label ID="Label1" runat="server" Text="Title:" CssClass="col-lg-3 control-label"></asp:Label>
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" placeholder="Photo Title"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Title required!"
                     ControlToValidate="txtTitle" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -32,19 +39,19 @@
         </div>
         <div class="form-group">
             <asp:Label ID="Label2" runat="server" Text="Description:" CssClass="col-lg-3 control-label"></asp:Label>
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <asp:TextBox TextMode="multiline" Rows="5" ID="txtDescription" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label">
             </label>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-primary"
                     OnClick="btnSave_Click" />
                 <span></span>
                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-default" CausesValidation="false"
-                    OnClick="btnCancel_Click" />
+                    OnClientClick="JavaScript:window.history.back(1);return false;" />
             </div>
         </div>
         </form>

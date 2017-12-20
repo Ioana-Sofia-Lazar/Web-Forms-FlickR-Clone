@@ -31,8 +31,8 @@ public partial class About : System.Web.UI.Page
             }
         }
 
+        command.Dispose();
         connection.Close();
-
-
+        
     }
 }

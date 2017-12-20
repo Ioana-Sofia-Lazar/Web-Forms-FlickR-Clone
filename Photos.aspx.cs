@@ -37,4 +37,9 @@ public partial class Photos : System.Web.UI.Page
             }
         }
     }
+
+    protected void btnAddPhoto_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/AddPhoto.aspx");
+    }
 }

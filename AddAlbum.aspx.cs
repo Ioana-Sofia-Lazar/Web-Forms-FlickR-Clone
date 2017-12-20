@@ -12,6 +12,7 @@ public partial class AddAlbum : System.Web.UI.Page
     {
 
     }
+
     protected void btnAddAlbum_Click(object sender, EventArgs e)
     {
         string username = Utils.getCurrentUsername();

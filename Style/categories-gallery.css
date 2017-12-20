@@ -1,0 +1,59 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+figure.snip1158
+{
+    font-family: 'Raleway' , Arial, sans-serif;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 5px 9px;
+    min-width: 220px;
+    max-width: 310px;
+    max-height: 220px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+figure.snip1158 *
+{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+figure.snip1158 img
+{
+    opacity: 0.7;
+    max-width: 100%;
+}
+figure.snip1158 figcaption
+{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+figure.snip1158 h3
+{
+    margin: 0;
+    width: 100%;
+}
+figure.snip1158 h3
+{
+    font-weight: 400;
+    text-transform: uppercase;
+}
+figure.snip1158 span
+{
+    color: #e6e6e6;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+figure.snip1158:hover img
+{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}

@@ -32,26 +32,29 @@ public class AlbumPhotoHandler : IHttpHandler {
 
     public void ProcessRequest (HttpContext context) {
         // get photo id sent as request parameter
-        string photoId = context.Request.QueryString["photo_id"].ToString();        
+        string photoId = context.Request.QueryString["photo_id"].ToString();
 
-        string query = "SELECT image FROM photo WHERE id = @id";
+        object data;
         
-        SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString());
-        SqlCommand command = new SqlCommand(query, connection);
-        command.Parameters.AddWithValue("@id", photoId);
-
-        connection.Open();            
-        object data = command.ExecuteScalar();
-        connection.Close();
-
-        if (data == null)
+        if (photoId.Equals(""))
         {
-            context.Response.Write("Images/album-cover-default.png");
-        }
+            string path = HttpContext.Current.Server.MapPath("~/images/image-placeholder.png");
+            data = System.IO.File.ReadAllBytes(path);
+        } 
         else
         {
-            context.Response.BinaryWrite((byte[])data);
-        }
+            string query = "SELECT image FROM photo WHERE id = @id";
+
+            SqlConnection connection = new SqlConnection(DatabaseManager.GetConnectionString());
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@id", photoId);
+
+            connection.Open();
+            data = command.ExecuteScalar();
+            connection.Close();
+        }    
+     
+        context.Response.BinaryWrite((byte[])data);
         
     }
 

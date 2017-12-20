@@ -120,6 +120,7 @@ p
 }
 .comment-actions li.complain
 {
+    color: Red;
     padding-right: 0.75rem;
     border-right: 1px solid #e1e5eb;
 }
